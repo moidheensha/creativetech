@@ -1,0 +1,42 @@
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <form method="post" action="{% url 'upuser' data.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+		<h2>Sign Up</h2>
+		<p>Please fill in this form to create an account!</p>
+		<hr>
+		<div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-user"></i></span>
+				<input type="email" class="form-control" name="email" placeholder="email" value="{{data.email}}" required="required" >
+			</div>
+		</div>
+      <br>
+      	<div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-user"></i></span>
+				<input type="text" class="form-control" name="username" placeholder="username" value="{{data.username}}"required="required">
+			</div>
+		</div>
+      <br>
+			<div class="form-group">
+			<div class="input-group">
+				<span class="input-group-addon"><i class="fa fa-user"></i></span>
+				<input type="text" class="form-control" name="password" placeholder="password" value="{{data.password}}" required="required">
+			</div>
+			</div>
+
+
+		<div class="form-group">
+            <button  type="submit" class="registerbtn">update</button>
+        </div>
+    </form>
+
+   <a href="{% url 'deleteuser' data.id %}">dele</a>
+</body>
+</html>

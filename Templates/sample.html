@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<form method="post" action="">
+    {% csrf_token %}
+
+    <label>{{data}}</label>
+    <br>
+
+    {% for i in options %}
+    <br>
+    <input type="radio" id="{{i}}" name="option" value="{{i}}" >
+
+    <label for="{{i}}" id="op" >{{i}}</label><br>
+   {%endfor%}
+
+
+</form>
+<button onclick="fn1()">submit</button>
+<script>
+
+
+    var ca='{{ca}}'
+
+
+
+    function fn1()
+    {
+      {% for i in options %}
+
+        var opval =document.getElementById({{i}})
+
+       if (opval.value==ca)
+       {
+         alert("correct answer")
+       }
+       else
+       {
+       alert("incorrect")
+       }
+       {%endfor%}
+
+
+    }
+
+
+</script>
+</body>
+
+</html>
